@@ -4,17 +4,16 @@ using UnityEngine;
 
 public class Sc_Global : MonoBehaviour
 {
-
     public int maxRAM; //numnero de intentos
     public int coffe;  //score multiplier
 
-    int score;
-    int ram;
-    int currency;
-    float speed = 0.6f;
-    float nextAction = 0;
+    private int score;
+    private int ram;
+    private int currency;
+    private float speed = 0.6f;
+    private float nextAction = 0.0f;
 
-    Queue<int[]> level = new Queue<int[]>();
+    private Queue<int[]> level = new Queue<int[]>();
 
     public Sc_CodeBlockGenerator cod1;
     public Sc_CodeBlockGenerator cod2;
@@ -23,26 +22,29 @@ public class Sc_Global : MonoBehaviour
     public Sc_CodeBlockGenerator cod5;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         initLevel();
+        nextAction = Time.time + speed;
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (Time.time > nextAction) {
+        if (Time.time > nextAction)
+        {
             nextAction = Time.time + speed;
-            if(level.Count > 0) generateCodeBlocks();
+            if (level.Count > 0) generateCodeBlocks();
         }
     }
 
-    float GetSpeed() {
+    private float GetSpeed()
+    {
         return speed;
     }
 
-    void initLevel() {
-
+    private void initLevel()
+    {
         //bool,bool,bool,bool,bool,set speed (0 dont change the speed)
         level.Enqueue(new[] { 1, 0, 0, 0, 0, 1 }); //level starts;
         level.Enqueue(new[] { 0, 1, 0, 0, 0, 0 });
@@ -51,8 +53,15 @@ public class Sc_Global : MonoBehaviour
         level.Enqueue(new[] { 0, 0, 0, 0, 1, 0 });
         //level.Enqueue(new[] { 0, 0, 0, 0, 0, 0 });
 
+        level.Enqueue(new[] { 0, 0, 0, 0, 1, 1 });
+        level.Enqueue(new[] { 0, 0, 0, 1, 0, 0 });
+        level.Enqueue(new[] { 0, 0, 1, 0, 0, 0 });
+        level.Enqueue(new[] { 0, 1, 0, 0, 0, 0 });
+        level.Enqueue(new[] { 1, 0, 0, 0, 0, 0 });
     }
-    void generateCodeBlocks() {
+
+    private void generateCodeBlocks()
+    {
         int[] CodeBlock = level.Dequeue();
         cod1.generate = CodeBlock[0] == 1;
         cod2.generate = CodeBlock[1] == 1;

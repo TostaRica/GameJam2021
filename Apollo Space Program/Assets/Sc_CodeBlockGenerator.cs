@@ -5,22 +5,26 @@ using UnityEngine;
 public class Sc_CodeBlockGenerator : MonoBehaviour
 {
     public Sc_CodeBlock model;
-    public Vector3 position = new Vector3(-2,0,0);
+
+    //[SerializeField]
+    //private Vector3 position;
+
     public bool generate = false;
-    Vector3 direction = new Vector3(1,0,0);
+    private Vector3 direction = new Vector3(1, 0, 0);
+
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (generate) {
+        if (generate)
+        {
             //generate code
             Sc_CodeBlock obj = Sc_CodeBlock.Instantiate(model);
-            obj.transform.position = position;
+            obj.transform.position = transform.position;
             obj.direction = direction;
             obj.speed = true;
             generate = false;
