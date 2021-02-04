@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Entro en el GameManager");
+        //Debug.Log("Entro en el GameManager");
         if (Serialization.isFileExists())
         {
             Serialization.Load();
@@ -108,36 +108,36 @@ public class GameManager : MonoBehaviour
     }
 
     // Methods Upgrades
-    public void GetCoffeeUpgrade()
+    public void GetColombianCoffeeUpgrade()
     {
         currentDataGame.currency -= 10;
-        currentDataGame.actualCoffeeUpgrade = UpgradesCoffeeCode.Colombian;
+        currentDataGame.actualCoffeeUpgrade = UpgradeCoffeeCode.Colombian;
     }
 
-    public void GetRAMUpgrade()
+    public void GetTwoRAMUpgrade()
     {
         currentDataGame.currency -= 30;
-        currentDataGame.actualRamUpgrade = UpgradesRamCode.TwoKB;
+        currentDataGame.actualRamUpgrade = UpgradeRamCode.TwoKB;
     }
 
-    public void Get3rdUpgrade()
+    public void GetMexicanCoffeeUpgrade()
     {
         currentDataGame.currency -= 10;
-        currentDataGame.actualCoffeeUpgrade = UpgradesCoffeeCode.Mexican;
+        currentDataGame.actualCoffeeUpgrade = UpgradeCoffeeCode.Mexican;
     }    
     
-    public void Get4rdUpgrade()
+    public void GetFourRAMUpgrade()
     {
         currentDataGame.currency -= 30;
-        currentDataGame.actualRamUpgrade = UpgradesRamCode.FourKB;
+        currentDataGame.actualRamUpgrade = UpgradeRamCode.FourKB;
     }
 
     private void UpdateButtonsUpgrade()
     {
-        if (currentDataGame.actualCoffeeUpgrade == UpgradesCoffeeCode.None && currentDataGame.currency > 10)
+        if (currentDataGame.actualCoffeeUpgrade == UpgradeCoffeeCode.None && currentDataGame.currency > 10)
         {
             colombianCoffeeBtn.interactable = true;
-        } else if (currentDataGame.actualCoffeeUpgrade == UpgradesCoffeeCode.Colombian)
+        } else if (currentDataGame.actualCoffeeUpgrade == UpgradeCoffeeCode.Colombian)
         {
             colombianCoffeeBtn.Select();
             if (currentDataGame.currency > 30)
@@ -146,11 +146,11 @@ public class GameManager : MonoBehaviour
             }    
         }
 
-        if (currentDataGame.actualRamUpgrade == UpgradesRamCode.None && currentDataGame.currency > 10)
+        if (currentDataGame.actualRamUpgrade == UpgradeRamCode.None && currentDataGame.currency > 10)
         {
             TwoRamBtn.interactable = true;
         }
-        else if (currentDataGame.actualRamUpgrade == UpgradesRamCode.TwoKB)
+        else if (currentDataGame.actualRamUpgrade == UpgradeRamCode.TwoKB)
         {
             TwoRamBtn.Select();
             if (currentDataGame.currency > 30)
