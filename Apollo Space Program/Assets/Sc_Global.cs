@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class Sc_Global : MonoBehaviour
 {
-    public int maxRAM; //numnero de intentos
-    public int coffe;  //score multiplier
+    [SerializeField] int maxRAM; //numnero de intentos
+    [SerializeField] int coffe;  //score multiplier
+    [SerializeField] Sc_CodeBlockGenerator cod1;
+    [SerializeField] Sc_CodeBlockGenerator cod2;
+    [SerializeField] Sc_CodeBlockGenerator cod3;
+    [SerializeField] Sc_CodeBlockGenerator cod4;
+    [SerializeField] Sc_CodeBlockGenerator cod5;
 
     private int score;
     private int ram;
@@ -14,12 +19,6 @@ public class Sc_Global : MonoBehaviour
     private float nextAction = 0.0f;
 
     private Queue<int[]> level = new Queue<int[]>();
-
-    public Sc_CodeBlockGenerator cod1;
-    public Sc_CodeBlockGenerator cod2;
-    public Sc_CodeBlockGenerator cod3;
-    public Sc_CodeBlockGenerator cod4;
-    public Sc_CodeBlockGenerator cod5;
 
     // Start is called before the first frame update
     private void Start()

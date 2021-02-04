@@ -4,12 +4,9 @@ using UnityEngine;
 
 public class Sc_CodeBlockGenerator : MonoBehaviour
 {
-    public Sc_CodeBlock model;
-
-    //[SerializeField]
-    //private Vector3 position;
-
+    [SerializeField] private Sc_CodeBlock model;
     public bool generate = false;
+
     private Vector3 direction = new Vector3(1, 0, 0);
 
     // Start is called before the first frame update

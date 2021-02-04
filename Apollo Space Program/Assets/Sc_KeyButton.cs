@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Sc_KeyButton : MonoBehaviour
 {
-    public KeyCode key;
+    [SerializeField] KeyCode key;
     GameObject codeblock = null;
 
     void Start()
