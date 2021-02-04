@@ -105,9 +105,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 287394282403816263}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46f2f4e8da8fd4944b97354aba50e600, type: 3}
+  m_Script: {fileID: 11500000, guid: 8d95869db3b947747ad77da9cfad7957, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  model: {fileID: 9207630618435189565, guid: cc6c85f1f0de16349859a222c1529de4, type: 3}
-  position: {x: -2, y: 0, z: 0}
-  generate: 1
+  model: {fileID: 0}
+  global: {fileID: 0}
+  generate: 0

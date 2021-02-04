@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:Apollo Space Program/Assets/Sc_CodeBlockDestroyer.cs.meta
-guid: 277cf6ee9c9c94c46838f6bffe6fee26
-=======
-guid: 9c7fbbe73daebdc4681f1e036b9eaa7f
->>>>>>> feature/upgrades:Apollo Space Program/Assets/Scripts/GameManager.cs.meta
+guid: bb8af584e2bdb4e48ae5b6525434e3ef
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2

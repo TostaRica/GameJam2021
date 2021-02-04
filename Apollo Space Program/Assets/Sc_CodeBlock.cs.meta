@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:Apollo Space Program/Assets/Sc_CodeBlock.cs.meta
-guid: 0c289c530736d5b47a90e737ea9fa9a3
-=======
-guid: fc466ac3ea884914fa39f4c33a044788
->>>>>>> feature/upgrades:Apollo Space Program/Assets/Scripts/DataGame.cs.meta
+guid: 956152be0fb915d4f94aa731b2c370d7
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2

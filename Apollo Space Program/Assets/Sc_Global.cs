@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
 public class Sc_Global : MonoBehaviour
 {
     [SerializeField] private int maxRAM; //numnero de intentos
@@ -24,7 +25,6 @@ public class Sc_Global : MonoBehaviour
 
     private int currentComboBar = 0;
     private int maxComboBar = 10;
-    
 
     // Start is called before the first frame update
     private void Start()
@@ -96,23 +96,29 @@ public class Sc_Global : MonoBehaviour
             level.Enqueue(row);
         }
     }
-    public void increaseSpeed() {
-        delayTime -= 0.001f; 
+
+    public void increaseSpeed()
+    {
+        delayTime -= 0.001f;
     }
 
     public float getDelayTime()
     {
         return delayTime;
     }
-    public void increaseScore() {
+
+    public void increaseScore()
+    {
         score += 1 * currentComboMultiplier; // add coffee
-        if (++currentComboBar == maxComboBar) {
+        if (++currentComboBar == maxComboBar)
+        {
             currentComboBar = 0;
             if (currentComboMultiplier < maxComboMultiplier) ++currentComboMultiplier;
         }
-
     }
-    public void breakCombo() {
+
+    public void breakCombo()
+    {
         currentComboBar = 0;
         currentComboMultiplier = 1;
     }
