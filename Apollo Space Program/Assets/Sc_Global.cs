@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Sc_Global : MonoBehaviour
 {
-    [SerializeField] int maxRAM; //numnero de intentos
-    [SerializeField] int coffe;  //score multiplier
-    [SerializeField] Sc_CodeBlockGenerator cod1;
-    [SerializeField] Sc_CodeBlockGenerator cod2;
-    [SerializeField] Sc_CodeBlockGenerator cod3;
-    [SerializeField] Sc_CodeBlockGenerator cod4;
-    [SerializeField] Sc_CodeBlockGenerator cod5;
+    [SerializeField] private int maxRAM; //numnero de intentos
+    [SerializeField] private int coffe;  //score multiplier
+    [SerializeField] private Sc_CodeBlockGenerator cod1;
+    [SerializeField] private Sc_CodeBlockGenerator cod2;
+    [SerializeField] private Sc_CodeBlockGenerator cod3;
+    [SerializeField] private Sc_CodeBlockGenerator cod4;
+    [SerializeField] private Sc_CodeBlockGenerator cod5;
 
     private int score;
     private int ram;
@@ -43,21 +43,20 @@ public class Sc_Global : MonoBehaviour
 
     private void initLevel()
     {
-        //bool,bool,bool,bool,bool,set speed (0 dont change the speed)
-        //level.Enqueue(new[] { 1, 0, 0, 0, 0}); //level starts;
-        //level.Enqueue(new[] { 0, 1, 0, 0, 0});
-        //level.Enqueue(new[] { 0, 0, 1, 0, 0});
-        //level.Enqueue(new[] { 0, 0, 0, 1, 0});
-        //level.Enqueue(new[] { 0, 0, 0, 0, 1});
+        generateStage(Random.Range(0, 10), new Vector2(0, 1));
+        generateStage(Random.Range(0, 10), new Vector2(0, 1));
+        generateStage(Random.Range(0, 10), new Vector2(0, 1));
+        generateStage(Random.Range(0, 10), new Vector2(0, 1));
 
-        //level.Enqueue(new[] { 0, 0, 0, 0, 1});
-        //level.Enqueue(new[] { 0, 0, 0, 1, 0});
-        //level.Enqueue(new[] { 0, 0, 1, 0, 0});
-        //level.Enqueue(new[] { 0, 1, 0, 0, 0});
-        //level.Enqueue(new[] { 1, 0, 0, 0, 0});
+        generateStage(Random.Range(0, 10), new Vector2(0, 2));
+        generateStage(Random.Range(0, 10), new Vector2(0, 2));
+        generateStage(Random.Range(0, 10), new Vector2(0, 2));
+        generateStage(Random.Range(0, 10), new Vector2(0, 2));
 
-        generateStage(10, 10, new Vector2(0, 2));
-
+        generateStage(Random.Range(0, 10), new Vector2(0, 3));
+        generateStage(Random.Range(0, 10), new Vector2(0, 3));
+        generateStage(Random.Range(0, 10), new Vector2(0, 3));
+        generateStage(Random.Range(0, 10), new Vector2(0, 3));
     }
 
     private void generateCodeBlocks()
@@ -70,14 +69,17 @@ public class Sc_Global : MonoBehaviour
         cod5.generate = CodeBlock[4] == 1;
     }
 
-    private void generateStage(int rowNum, int codeBlockNum, Vector2 rowRange) {
-
-        for (int i = 0; i < rowNum && codeBlockNum > 0; i++) {
+    private void generateStage(int codeBlockNum, Vector2 rowRange)
+    {
+        for (int i = 0; codeBlockNum > 0; i++)
+        {
             int[] row = new[] { 0, 0, 0, 0, 0 };
-            int numCodeBlocks = Random.Range((int)rowRange[0], (int)rowRange[1]+1);
-            while (numCodeBlocks > 0) {
-                int position = (int) Random.Range(0, 4);
-                if (row[position] == 0) {
+            int numCodeBlocks = Random.Range((int)rowRange[0], (int)rowRange[1] + 1);
+            while (numCodeBlocks > 0)
+            {
+                int position = (int)Random.Range(0, 4);
+                if (row[position] == 0)
+                {
                     row[position] = 1;
                     --numCodeBlocks;
                     --codeBlockNum;
@@ -85,6 +87,5 @@ public class Sc_Global : MonoBehaviour
             }
             level.Enqueue(row);
         }
-    
     }
 }
