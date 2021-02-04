@@ -12,8 +12,17 @@ public class GameManager : MonoBehaviour
 
     public static DataGame currentDataGame = new DataGame();
 
+    // Data Game Info
     public Text highScoreText;
     public Text currencyText;
+    public Text actualCoffeeUpgradeText;
+    public Text actualRamUpgradeText;
+
+    // Upgrades buttons
+    public Button colombianCoffeeBtn;
+    public Button mexicanCoffeeBtn;
+    public Button TwoRamBtn;
+    public Button FourRamBtn;
 
     // Start is called before the first frame update
     void Start()
@@ -26,21 +35,23 @@ public class GameManager : MonoBehaviour
         {
             Serialization.Save(currentDataGame);
         }
+
+        // Upgrades buttons
+        colombianCoffeeBtn.interactable = false;
+        mexicanCoffeeBtn.interactable = false;
+        TwoRamBtn.interactable = false;
+        FourRamBtn.interactable = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        highScoreText.text = currentDataGame.highScore.ToString();
+        currencyText.text = currentDataGame.currency.ToString();
+        actualCoffeeUpgradeText.text = currentDataGame.actualCoffeeUpgrade.ToString();
+        actualRamUpgradeText.text = currentDataGame.actualRamUpgrade.ToString();
 
-        if (highScoreText.text != null)
-        {
-            highScoreText.text = currentDataGame.highScore.ToString();
-        }
-        
-        if (currencyText.text != null)
-        {
-            currencyText.text = currentDataGame.currency.ToString();
-        }
+        UpdateButtonsUpgrade();
   
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -52,8 +63,13 @@ public class GameManager : MonoBehaviour
     public void AddHighScore ()
     {
         currentDataGame.highScore += 100;
+    }    
+    public void AddCurrency ()
+    {
+        currentDataGame.currency += 10;
     }
 
+    // Methods to flow
     public void Play()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(GAME);
@@ -74,6 +90,8 @@ public class GameManager : MonoBehaviour
         Application.Quit();
     }
 
+    // Methods Serialization
+
     public void SaveDataGame()
     {
         Serialization.Save(currentDataGame);
@@ -88,4 +106,58 @@ public class GameManager : MonoBehaviour
     {
         currentDataGame = loadDataGame;
     }
+
+    // Methods Upgrades
+    public void GetCoffeeUpgrade()
+    {
+        currentDataGame.currency -= 10;
+        currentDataGame.actualCoffeeUpgrade = UpgradesCoffeeCode.Colombian;
+    }
+
+    public void GetRAMUpgrade()
+    {
+        currentDataGame.currency -= 30;
+        currentDataGame.actualRamUpgrade = UpgradesRamCode.TwoKB;
+    }
+
+    public void Get3rdUpgrade()
+    {
+        currentDataGame.currency -= 10;
+        currentDataGame.actualCoffeeUpgrade = UpgradesCoffeeCode.Mexican;
+    }    
+    
+    public void Get4rdUpgrade()
+    {
+        currentDataGame.currency -= 30;
+        currentDataGame.actualRamUpgrade = UpgradesRamCode.FourKB;
+    }
+
+    private void UpdateButtonsUpgrade()
+    {
+        if (currentDataGame.actualCoffeeUpgrade == UpgradesCoffeeCode.None && currentDataGame.currency > 10)
+        {
+            colombianCoffeeBtn.interactable = true;
+        } else if (currentDataGame.actualCoffeeUpgrade == UpgradesCoffeeCode.Colombian)
+        {
+            colombianCoffeeBtn.Select();
+            if (currentDataGame.currency > 30)
+            {
+                mexicanCoffeeBtn.interactable = true;
+            }    
+        }
+
+        if (currentDataGame.actualRamUpgrade == UpgradesRamCode.None && currentDataGame.currency > 10)
+        {
+            TwoRamBtn.interactable = true;
+        }
+        else if (currentDataGame.actualRamUpgrade == UpgradesRamCode.TwoKB)
+        {
+            TwoRamBtn.Select();
+            if (currentDataGame.currency > 30)
+            {
+                FourRamBtn.interactable = true;
+            }
+        }
+    }
+
 }
