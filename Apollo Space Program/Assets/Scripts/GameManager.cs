@@ -1,19 +1,19 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[System.Serializable]
 public class GameManager : MonoBehaviour
 {
     public const string GAME = "SampleScene";
     public const string UPGRADES = "Upgrades";
     public const string MENU = "Menu";
 
-    public static GameManager currentGame;
+    public static DataGame currentDataGame = new DataGame();
 
-    public int highScore = 0;
-    public int currency = 0;
+    public int highScore = currentDataGame.highScore;
+    public int currency = currentDataGame.currency;
 
     public Text highScoreText;
 
@@ -23,32 +23,55 @@ public class GameManager : MonoBehaviour
         if (Serialization.isFileExists())
         {
             Serialization.Load();
+        } else
+        {
+            Serialization.Save(currentDataGame);
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        highScoreText.text = highScore.ToString();
+        highScoreText.text = currentDataGame.highScore.ToString();
     }
 
-    public void play()
+    public void AddHighScore ()
+    {
+        currentDataGame.highScore += 100;
+    }
+
+    public void Play()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(GAME);
     }
 
-    public void upgrades()
+    public void Upgrades()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(UPGRADES);
     }    
 
-    public void menu()
+    public void Menu()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(MENU);
     }
     
-    public void exit()
+    public void Exit()
     {
         Application.Quit();
+    }
+
+    public void SaveDataGame()
+    {
+        Serialization.Save(currentDataGame);
+    }
+
+    public void LoadDataGame()
+    {
+        Serialization.Load();
+    }
+
+    internal static void SetDataGame(DataGame loadDataGame)
+    {
+        currentDataGame = loadDataGame;
     }
 }
