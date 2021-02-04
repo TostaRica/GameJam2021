@@ -6,7 +6,7 @@ public class Sc_KeyButton : MonoBehaviour
 {
     [SerializeField] KeyCode key;
     GameObject codeblock = null;
-
+    [SerializeField] Sc_Global global = null;
     void Start()
     {
         
@@ -20,10 +20,12 @@ public class Sc_KeyButton : MonoBehaviour
             if (codeblock != null)
             {
                 Destroy(codeblock);
+                global.increaseScore();
                 //add points
             }
             else
             {
+                global.breakCombo();
                 //quitar puntos 
             }
         }
@@ -34,6 +36,7 @@ public class Sc_KeyButton : MonoBehaviour
         if (other.CompareTag("CodeBlock"))
         {
             codeblock = other.gameObject;
+
         }
     }
 
