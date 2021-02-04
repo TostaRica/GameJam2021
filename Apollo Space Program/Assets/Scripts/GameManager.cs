@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public const string GAME = "SampleScene";
     public const string UPGRADES = "Upgrades";
+    public const string MENU = "Menu";
     // Start is called before the first frame update
 
     void Start()
@@ -28,6 +29,11 @@ public class GameManager : MonoBehaviour
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(UPGRADES);
     }    
+
+    public void menu()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(MENU);
+    }
     
     public void exit()
     {
