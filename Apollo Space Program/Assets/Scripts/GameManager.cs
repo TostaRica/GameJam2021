@@ -7,8 +7,8 @@ public class GameManager : MonoBehaviour
     public const string GAME = "SampleScene";
     public const string UPGRADES = "Upgrades";
     public const string MENU = "Menu";
-    // Start is called before the first frame update
 
+    // Start is called before the first frame update
     void Start()
     {
         

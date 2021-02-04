@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Upgrades : MonoBehaviour
 {
-    public int playerScore = 0;
 
     // Start is called before the first frame update
     void Start()
