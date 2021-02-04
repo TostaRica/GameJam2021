@@ -10,7 +10,7 @@ public class DataGame
     public DataGame()
     {
         highScore = 0;
-        currency = 0;
+        currency = 1;
     }
 
 

@@ -12,14 +12,13 @@ public class GameManager : MonoBehaviour
 
     public static DataGame currentDataGame = new DataGame();
 
-    public int highScore = currentDataGame.highScore;
-    public int currency = currentDataGame.currency;
-
     public Text highScoreText;
+    public Text currencyText;
 
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("Entro en el GameManager");
         if (Serialization.isFileExists())
         {
             Serialization.Load();
@@ -32,7 +31,22 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        highScoreText.text = currentDataGame.highScore.ToString();
+
+        if (highScoreText.text != null)
+        {
+            highScoreText.text = currentDataGame.highScore.ToString();
+        }
+        
+        if (currencyText.text != null)
+        {
+            currencyText.text = currentDataGame.currency.ToString();
+        }
+  
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+            
     }
 
     public void AddHighScore ()
