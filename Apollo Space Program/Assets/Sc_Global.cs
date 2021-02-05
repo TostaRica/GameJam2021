@@ -5,8 +5,13 @@ using UnityEngine.UI;
 
 public class Sc_Global : MonoBehaviour
 {
-    [SerializeField] private int maxRAM; //numnero de intentos
-    [SerializeField] private int coffe;  //score multiplier
+    public enum EndGameNum
+    {
+        Victory = 1,
+        LoseRam = 2,
+        LoseScore = 3,
+    }
+
     [SerializeField] private Sc_CodeBlockGenerator cod1;
     [SerializeField] private Sc_CodeBlockGenerator cod2;
     [SerializeField] private Sc_CodeBlockGenerator cod3;
@@ -14,17 +19,19 @@ public class Sc_Global : MonoBehaviour
     [SerializeField] private Sc_CodeBlockGenerator cod5;
     [SerializeField] private Text txt_score;
     [SerializeField] private Text txt_combo;
+    public static DataGame currentData = new DataGame();
 
     private int codeBlockCount = 0;
     private int score;
-    private int ram;
+    private int maxRAM = 4;
+    private int ram = 0;
     private int currency;
     private float delayTime = 0.5f;
     private float nextAction = 0.0f;
     private float finalDelay = 2.5f;
     private float finalAction = 0.0f;
     private bool endGame = false;
-
+    private int currencyValue = 10; //points
     private Queue<int[]> level = new Queue<int[]>();
 
     private int currentComboMultiplier = 1;
@@ -36,6 +43,15 @@ public class Sc_Global : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        if (Serialization.isFileExists())
+        {
+            Serialization.Load();
+        }
+        else
+        {
+            Serialization.Save(currentData);
+        }
+
         initLevel();
         nextAction = Time.time + delayTime;
     }
@@ -43,7 +59,7 @@ public class Sc_Global : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-
+        CheckRam();
         txt_score.text = score.ToString();
         txt_combo.text = currentComboMultiplier.ToString();
         if (Time.time > nextAction)
@@ -63,7 +79,7 @@ public class Sc_Global : MonoBehaviour
         }
         if (endGame && finalAction - Time.time < 0)
         {
-            Menu();
+            EndGame(EndGameNum.Victory);
         }
     }
 
@@ -92,10 +108,11 @@ public class Sc_Global : MonoBehaviour
         generateStage(randomNumber, new Vector2(2, 3));
     }
 
-    public void CodeBlockCountDestroyer(GameObject codeBlock)
+    public void CodeBlockDestroyer(GameObject codeBlock, bool fail = false)
     {
         Destroy(codeBlock);
         codeBlockCount--;
+        if (fail) ++ram;
     }
 
     private void generateCodeBlocks()
@@ -140,7 +157,7 @@ public class Sc_Global : MonoBehaviour
 
     public void increaseScore()
     {
-        score += 1 * currentComboMultiplier; // add coffee
+        score += 1 * currentComboMultiplier * (int)currentData.actualCoffeeUpgrade; // add coffee
         if (++currentComboBar == maxComboBar)
         {
             currentComboBar = 0;
@@ -152,6 +169,7 @@ public class Sc_Global : MonoBehaviour
     {
         currentComboBar = 0;
         currentComboMultiplier = 1;
+        ram++;
     }
 
     public void Menu()
@@ -159,8 +177,46 @@ public class Sc_Global : MonoBehaviour
         UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
     }
 
-    public void SaveDataGame()
+    private void CheckRam()
     {
-        // Serialization.Save(currentDataGame);
+        if (ram > maxRAM + (int)currentData.actualRamUpgrade)
+        {
+            EndGame(EndGameNum.LoseRam);
+        }
+    }
+
+    private void EndGame(EndGameNum endGame)
+    {
+        if (score > currentData.highScore)
+        {
+            currentData.highScore = score;
+        }
+        currentData.currency += GetCoins();
+        Serialization.Save(currentData);
+
+        switch (endGame)
+        {
+            case EndGameNum.Victory:
+                Menu();
+                break;
+
+            case EndGameNum.LoseRam:
+                Menu();
+                break;
+
+            case EndGameNum.LoseScore:
+                Menu();
+                break;
+        }
+    }
+
+    internal static void SetDataGame(DataGame datagame)
+    {
+        currentData = datagame;
+    }
+
+    private int GetCoins()
+    {
+        return (int)score / currencyValue;
     }
 }

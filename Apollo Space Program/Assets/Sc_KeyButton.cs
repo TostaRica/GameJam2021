@@ -24,15 +24,13 @@ public class Sc_KeyButton : MonoBehaviour
             {
                 particles[0].Play();
                 particles[1].Play();
-                global.CodeBlockCountDestroyer(codeblock);
+                global.CodeBlockDestroyer(codeblock);
                 global.increaseScore();
                 codeblock = null;
-                //add points
             }
             else
             {
                 global.breakCombo();
-                //quitar puntos
             }
         }
         if (Input.GetKeyUp(key))
