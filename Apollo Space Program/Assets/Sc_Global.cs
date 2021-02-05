@@ -16,7 +16,7 @@ public class Sc_Global : MonoBehaviour
     private int score;
     private int ram;
     private int currency;
-    private float delayTime = 0.6f;
+    private float delayTime = 0.52f;
     private float nextAction = 0.0f;
     private Queue<int[]> level = new Queue<int[]>();
 
@@ -37,6 +37,7 @@ public class Sc_Global : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+
         txt_score.text = score.ToString();
         if (Time.time > nextAction)
         {
@@ -51,7 +52,7 @@ public class Sc_Global : MonoBehaviour
 
     private void initLevel()
     {
-        generateStage(Random.Range(30, 30), new Vector2(1, 1));
+        generateStage(Random.Range(30, 120), new Vector2(1, 1));
     }
 
     private void generateCodeBlocks()
@@ -85,7 +86,7 @@ public class Sc_Global : MonoBehaviour
     }
     public void increaseSpeed()
     {
-        delayTime -= 0.001f;
+        delayTime -= 0f;
     }
 
     public float getDelayTime()

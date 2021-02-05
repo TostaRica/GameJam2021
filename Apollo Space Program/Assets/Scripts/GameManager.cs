@@ -26,6 +26,10 @@ public class GameManager : MonoBehaviour
     public Button FourRamBtn;
     public Button SixRamBtn;
 
+    //Audio
+    public AudioSource audio;
+    public AudioSource coffe;
+    public AudioSource ram;
     // Start is called before the first frame update
     void Start()
     {
@@ -82,22 +86,26 @@ public class GameManager : MonoBehaviour
     // Methods to flow
     public void Play()
     {
+        audio.Play();
         UnityEngine.SceneManagement.SceneManager.LoadScene(GAME);
     }
 
     public void Upgrades()
     {
+        audio.Play();
         UnityEngine.SceneManagement.SceneManager.LoadScene(UPGRADES);
     }
 
     public void Menu()
     {
+   
         UnityEngine.SceneManagement.SceneManager.LoadScene(MENU);
         SaveDataGame();
     }
 
     public void Exit()
     {
+        audio.Play();
         Application.Quit();
     }
 
@@ -121,36 +129,42 @@ public class GameManager : MonoBehaviour
     // Methods Upgrades
     public void GetColombianCoffeeUpgrade()
     {
+        coffe.Play();
         currentDataGame.currency -= 10;
         currentDataGame.actualCoffeeUpgrade = UpgradeCoffeeCode.Colombian;
     }
 
     public void GetMexicanCoffeeUpgrade()
     {
+        coffe.Play();
         currentDataGame.currency -= 30;
         currentDataGame.actualCoffeeUpgrade = UpgradeCoffeeCode.Mexican;
     }    
     
     public void GetAmericanCoffeeUpgrade()
     {
+        coffe.Play();
         currentDataGame.currency -= 60;
         currentDataGame.actualCoffeeUpgrade = UpgradeCoffeeCode.American;
     }
 
     public void GetTwoRAMUpgrade()
     {
+        ram.Play();
         currentDataGame.currency -= 10;
         currentDataGame.actualRamUpgrade = UpgradeRamCode.TwoKB;
     }
 
     public void GetFourRAMUpgrade()
     {
+        ram.Play();
         currentDataGame.currency -= 30;
         currentDataGame.actualRamUpgrade = UpgradeRamCode.FourKB;
     }
     
     public void GetSixRAMUpgrade()
     {
+        ram.Play();
         currentDataGame.currency -= 60;
         currentDataGame.actualRamUpgrade = UpgradeRamCode.SixKB;
     }

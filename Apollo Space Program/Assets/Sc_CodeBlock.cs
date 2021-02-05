@@ -6,6 +6,7 @@ public class Sc_CodeBlock : MonoBehaviour
 {
     public Vector3 direction;
     public Sc_Global global;
+    
     // Start is called before the first frame update
     void Start()
     {
