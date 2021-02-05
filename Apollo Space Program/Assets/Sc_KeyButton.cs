@@ -8,6 +8,8 @@ public class Sc_KeyButton : MonoBehaviour
     private GameObject codeblock = null;
     [SerializeField] private Sc_Global global = null;
 
+
+    public ParticleSystem[] particles = new ParticleSystem[2];
     private void Start()
     {
     }
@@ -20,6 +22,8 @@ public class Sc_KeyButton : MonoBehaviour
             gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 0.05f, gameObject.transform.position.z);
             if (codeblock != null)
             {
+                particles[0].Play();
+                particles[1].Play();
                 global.CodeBlockDestroyer(codeblock);
                 global.increaseScore();
                 codeblock = null;
