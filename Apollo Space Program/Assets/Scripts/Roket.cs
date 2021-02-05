@@ -12,6 +12,7 @@ public class Roket : MonoBehaviour
     public bool levelEnd;
     public bool isDestroy;
     public bool HasBeenDestroy;
+    public float timeToScene;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,16 +40,13 @@ public class Roket : MonoBehaviour
         }
         else
         {
-            gameObject.transform.Translate(Vector3.forward * 10 * Time.deltaTime);
+            gameObject.transform.Translate(Vector3.up * 20 * Time.deltaTime);
             GameObject[] RoketFires;
             RoketFires = GameObject.FindGameObjectsWithTag("Rfire");
             foreach (GameObject go in RoketFires)
             {
                 go.GetComponentInChildren<ParticleSystem>().Play();
             }
-
-
-            
 
             if (!isLaunched)
             {
@@ -69,8 +67,30 @@ public class Roket : MonoBehaviour
                     {
                         go.GetComponentInChildren<ParticleSystem>().Play();
                     }
+
+                    GameObject[] RoketChild;
+                    RoketChild = GameObject.FindGameObjectsWithTag("Child");
+                    foreach (GameObject go in RoketChild)
+                    {
+                        go.GetComponentInChildren<Rigidbody>().isKinematic = false;
+                    }
                     HasBeenDestroy = true;
                     RocketExplote.Play();
+                    RoketFires = GameObject.FindGameObjectsWithTag("Rfire");
+                    foreach (GameObject go in RoketFires)
+                    {
+                        go.GetComponentInChildren<ParticleSystem>().Stop();
+                    }
+
+                   
+                }
+            }
+            if((HasBeenDestroy))
+            {
+                timeToScene -= Time.deltaTime;
+                if(timeToScene < 0)
+                {
+                    UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
                 }
             }
         }
@@ -98,6 +118,14 @@ public class Roket : MonoBehaviour
             {
                 isLaunched = true;
                 AudioRoket.Play();
+            }
+            if ((isLaunched))
+            {
+                timeToScene -= Time.deltaTime;
+                if (timeToScene < 0)
+                {
+                    UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
+                }
             }
         }
     }

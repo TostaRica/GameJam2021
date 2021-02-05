@@ -39,7 +39,8 @@ public class Sc_Global : MonoBehaviour
 
     private int currentComboBar = 0;
     private int maxComboBar = 10;
-
+    public GameObject CamaraMove;
+    public GameObject Roket;
     // Start is called before the first frame update
     private void Start()
     {
@@ -174,6 +175,7 @@ public class Sc_Global : MonoBehaviour
 
     public void Menu()
     {
+
         UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
     }
 
@@ -197,11 +199,15 @@ public class Sc_Global : MonoBehaviour
         switch (endGame)
         {
             case EndGameNum.Victory:
-                Menu();
+                Roket.GetComponent<Roket>().levelEnd = true;
+                CamaraMove.transform.position = new Vector3(19.54f, 8.0f, -200.00f);
+                CamaraMove.transform.eulerAngles = new Vector3(-32.7f, 155.0f, 2.5f);
+                //Menu();
                 break;
 
             case EndGameNum.LoseRam:
-                Menu();
+                Roket.GetComponent<Roket>().isDestroy = true;
+              //  Menu();
                 break;
 
             case EndGameNum.LoseScore:
