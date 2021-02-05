@@ -18,6 +18,7 @@ public class Sc_KeyButton : MonoBehaviour
     {
         if (Input.GetKeyDown(key))
         {
+            gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 0.05f, gameObject.transform.position.z);
             if (codeblock != null)
             {
                 Destroy(codeblock);
@@ -30,6 +31,10 @@ public class Sc_KeyButton : MonoBehaviour
                 global.breakCombo();
                 //quitar puntos 
             }
+        }
+        if (Input.GetKeyUp(key))
+        {
+            gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y - 0.05f, gameObject.transform.position.z);
         }
     }
 

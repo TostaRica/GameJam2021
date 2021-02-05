@@ -6,6 +6,7 @@ public class Sc_CodeBlockGenerator : MonoBehaviour
 {
     [SerializeField] private Sc_CodeBlock model;
     [SerializeField] private Sc_Global global;
+    [SerializeField] private Material objMat;
     public bool generate = false;
 
     private Vector3 direction = new Vector3(1, 0, 0);
@@ -25,6 +26,7 @@ public class Sc_CodeBlockGenerator : MonoBehaviour
             obj.transform.position = transform.position;
             obj.direction = direction;
             obj.global = global;
+            obj.GetComponent<Renderer>().material = objMat;
             generate = false;
         }
     }
