@@ -1474,6 +1474,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b47f39d91e61384889cff33839361dc, type: 3}
+--- !u!1 &514013775 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6610562798131095727, guid: ae0981b4223645b4fa169d4040492fb7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1802311078}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &516673005
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1798,6 +1804,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &889056835 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3308356171634669939, guid: ae0981b4223645b4fa169d4040492fb7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1802311078}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &889056836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 889056835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cecc203219942774e925e447943f5a40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coffeeMug: {fileID: 514013775}
 --- !u!198 &897251157 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 198923103809402952, guid: 8b47f39d91e61384889cff33839361dc,
