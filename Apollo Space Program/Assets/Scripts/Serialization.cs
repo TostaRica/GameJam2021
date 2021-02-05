@@ -33,9 +33,10 @@ public static class Serialization
             // Set the last saved datagame
             GameManager.SetDataGame(savedGames[savedGames.Count - 1]);
             Sc_Global.SetDataGame(savedGames[savedGames.Count - 1]);
+            BehaviourObjects.SetDataGame(savedGames[savedGames.Count - 1]);
         }
     }
-    
+
     public static bool isFileExists()
     {
         return File.Exists(Application.persistentDataPath + Path.DirectorySeparatorChar + "savedata.upc");
