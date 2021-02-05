@@ -23,7 +23,7 @@ public class Sc_Global : MonoBehaviour
 
     private int codeBlockCount = 0;
     private int score;
-    private int maxRAM = 4;
+    private int maxRAM = 10;
     private int ram = 0;
     private int currency;
     private float delayTime = 0.5f;
@@ -85,9 +85,9 @@ public class Sc_Global : MonoBehaviour
 
     private void initLevel()
     {
-        int randomNumber = Random.Range(10, 20);
+        int randomNumber = Random.Range(40, 50);
         codeBlockCount += randomNumber;
-        generateStage(randomNumber, new Vector2(1, 1));
+        generateStage(randomNumber, new Vector2(0, 1));
         randomNumber = Random.Range(10, 15);
         codeBlockCount += randomNumber;
         generateStage(randomNumber, new Vector2(1, 2));
