@@ -5,8 +5,7 @@ using UnityEngine;
 public class Sc_CodeBlock : MonoBehaviour
 {
     public Vector3 direction;
-    public bool speed;
-
+    public Sc_Global global;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,8 +15,6 @@ public class Sc_CodeBlock : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (speed) {
-            gameObject.transform.position += direction * Time.deltaTime; 
-        }
+        gameObject.transform.position += (direction * Time.deltaTime) / global.getDelayTime();
     }
 }

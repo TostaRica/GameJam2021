@@ -5,6 +5,7 @@ using UnityEngine;
 public class Sc_CodeBlockGenerator : MonoBehaviour
 {
     [SerializeField] private Sc_CodeBlock model;
+    [SerializeField] private Sc_Global global;
     public bool generate = false;
 
     private Vector3 direction = new Vector3(1, 0, 0);
@@ -23,7 +24,7 @@ public class Sc_CodeBlockGenerator : MonoBehaviour
             Sc_CodeBlock obj = Sc_CodeBlock.Instantiate(model);
             obj.transform.position = transform.position;
             obj.direction = direction;
-            obj.speed = true;
+            obj.global = global;
             generate = false;
         }
     }
