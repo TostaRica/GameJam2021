@@ -93,7 +93,6 @@ public class GameManager : MonoBehaviour
     public void Menu()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(MENU);
-        SaveDataGame();
     }
 
     public void Exit()
@@ -123,36 +122,42 @@ public class GameManager : MonoBehaviour
     {
         currentDataGame.currency -= 10;
         currentDataGame.actualCoffeeUpgrade = UpgradeCoffeeCode.Colombian;
+        SaveDataGame();
     }
 
     public void GetMexicanCoffeeUpgrade()
     {
         currentDataGame.currency -= 30;
         currentDataGame.actualCoffeeUpgrade = UpgradeCoffeeCode.Mexican;
+        SaveDataGame();
     }    
     
     public void GetAmericanCoffeeUpgrade()
     {
         currentDataGame.currency -= 60;
         currentDataGame.actualCoffeeUpgrade = UpgradeCoffeeCode.American;
+        SaveDataGame();
     }
 
     public void GetTwoRAMUpgrade()
     {
         currentDataGame.currency -= 10;
         currentDataGame.actualRamUpgrade = UpgradeRamCode.TwoKB;
+        SaveDataGame();
     }
 
     public void GetFourRAMUpgrade()
     {
         currentDataGame.currency -= 30;
         currentDataGame.actualRamUpgrade = UpgradeRamCode.FourKB;
+        SaveDataGame();
     }
     
     public void GetSixRAMUpgrade()
     {
         currentDataGame.currency -= 60;
         currentDataGame.actualRamUpgrade = UpgradeRamCode.SixKB;
+        SaveDataGame();
     }
 
     private void UpdateButtonsUpgrade()
