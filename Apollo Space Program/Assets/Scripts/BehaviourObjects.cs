@@ -6,6 +6,9 @@ using UnityEngine;
 public class BehaviourObjects : MonoBehaviour
 {
     public GameObject coffeeMug;
+    public GameObject storyboard;
+    public GameObject canvas;
+    public GameObject canvasCont;
     public static DataGame currentDataGame = new DataGame();
 
     // Start is called before the first frame update
@@ -25,6 +28,12 @@ public class BehaviourObjects : MonoBehaviour
     private void Update()
     {
         coffeeMug.gameObject.SetActive(currentDataGame.actualCoffeeUpgrade != UpgradeCoffeeCode.None);
+
+        storyboard.gameObject.SetActive(currentDataGame.firstTime);
+        canvasCont.gameObject.SetActive(currentDataGame.firstTime);
+
+        canvas.gameObject.SetActive(!currentDataGame.firstTime);
+        
     }
 
     internal static void SetDataGame(DataGame dataGame)

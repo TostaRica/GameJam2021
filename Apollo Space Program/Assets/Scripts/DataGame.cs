@@ -24,6 +24,7 @@ public class DataGame
     public int currency;
     public UpgradeCoffeeCode actualCoffeeUpgrade;
     public UpgradeRamCode actualRamUpgrade;
+    public bool firstTime;
 
     public DataGame()
     {
@@ -31,5 +32,6 @@ public class DataGame
         currency = 0;
         actualCoffeeUpgrade = UpgradeCoffeeCode.None;
         actualRamUpgrade = UpgradeRamCode.None;
+        firstTime = true;
     }
 }

@@ -178,7 +178,10 @@ public class GameManager : MonoBehaviour
     {
         EnterEffect.Play();
     }
-
+    public void HideStoryboard() {
+        currentDataGame.firstTime = false;
+        SaveDataGame();
+    }
     private void UpdateButtonsUpgrade()
     {
         if (currentDataGame.actualCoffeeUpgrade == UpgradeCoffeeCode.None)
