@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     public AudioSource audio;
     public AudioSource coffe;
     public AudioSource ram;
+    public AudioSource EnterEffect;
     // Start is called before the first frame update
     void Start()
     {
@@ -167,6 +168,10 @@ public class GameManager : MonoBehaviour
         ram.Play();
         currentDataGame.currency -= 60;
         currentDataGame.actualRamUpgrade = UpgradeRamCode.SixKB;
+    }
+    public void DoEnterEffect()
+    {
+        EnterEffect.Play();
     }
 
     private void UpdateButtonsUpgrade()

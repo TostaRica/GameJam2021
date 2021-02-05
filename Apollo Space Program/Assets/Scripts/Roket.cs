@@ -5,8 +5,13 @@ using UnityEngine;
 public class Roket : MonoBehaviour
 {
     public float TimeToLaunch;
+    public float TimeToExplote;
     public AudioSource AudioRoket;
+    public AudioSource RocketExplote;
     public bool isLaunched;
+    public bool levelEnd;
+    public bool isDestroy;
+    public bool HasBeenDestroy;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,8 +21,65 @@ public class Roket : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (isDestroy)
+        {
+            DestroyRoket();
+        }
+        if (levelEnd)
+        {
+            LaunchRoket();
+        }
+    }
 
+    public void DestroyRoket()
+    {
+        if (TimeToLaunch > 0)
+        {
+            TimeToLaunch -= Time.deltaTime;
+        }
+        else
+        {
+            gameObject.transform.Translate(Vector3.forward * 10 * Time.deltaTime);
+            GameObject[] RoketFires;
+            RoketFires = GameObject.FindGameObjectsWithTag("Rfire");
+            foreach (GameObject go in RoketFires)
+            {
+                go.GetComponentInChildren<ParticleSystem>().Play();
+            }
+
+
+            
+
+            if (!isLaunched)
+            {
+                isLaunched = true;
+                AudioRoket.Play();
+            }
+
+            if (TimeToExplote > 0)
+            {
+                TimeToExplote -= Time.deltaTime;
+            }
+            else {
+                if (!HasBeenDestroy)
+                {
+                    GameObject[] RoketExplote;
+                    RoketExplote = GameObject.FindGameObjectsWithTag("RExplode");
+                    foreach (GameObject go in RoketExplote)
+                    {
+                        go.GetComponentInChildren<ParticleSystem>().Play();
+                    }
+                    HasBeenDestroy = true;
+                    RocketExplote.Play();
+                }
+            }
+        }
+    }
+
+
+    public void LaunchRoket()
+    {
+        
         if (TimeToLaunch > 0)
         {
             TimeToLaunch -= Time.deltaTime;

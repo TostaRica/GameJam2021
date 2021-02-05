@@ -19,7 +19,7 @@ public class Sc_Global : MonoBehaviour
     private int score;
     private int ram;
     private int currency;
-    private float delayTime = 0.52f;
+    private float delayTime = 0.5f;
     private float nextAction = 0.0f;
     private float finalDelay = 2.5f;
     private float finalAction = 0.0f;
@@ -74,7 +74,7 @@ public class Sc_Global : MonoBehaviour
         generateStage(randomNumber, new Vector2(1, 1));
         randomNumber = Random.Range(10, 15);
         codeBlockCount += randomNumber;
-        generateStage(randomNumber, new Vector2(0, 2));
+        generateStage(randomNumber, new Vector2(1, 2));
         randomNumber = Random.Range(5, 10);
         codeBlockCount += randomNumber;
         generateStage(randomNumber, new Vector2(1, 2));
@@ -83,7 +83,7 @@ public class Sc_Global : MonoBehaviour
         generateStage(randomNumber, new Vector2(1, 2));
         randomNumber = Random.Range(5, 10);
         codeBlockCount += randomNumber;
-        generateStage(randomNumber, new Vector2(0, 3));
+        generateStage(randomNumber, new Vector2(1, 3));
         randomNumber = Random.Range(10, 15);
         codeBlockCount += randomNumber;
         generateStage(randomNumber, new Vector2(1, 2));
