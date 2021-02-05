@@ -32,6 +32,7 @@ public static class Serialization
 
             // Set the last saved datagame
             GameManager.SetDataGame(savedGames[savedGames.Count - 1]);
+            BehaviourObjects.SetDataGame(savedGames[savedGames.Count - 1]);
         }
     }
     
