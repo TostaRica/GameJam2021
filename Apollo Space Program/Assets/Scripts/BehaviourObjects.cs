@@ -11,7 +11,14 @@ public class BehaviourObjects : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Serialization.Load();
+        if (Serialization.isFileExists())
+        {
+            Serialization.Load();
+        }
+        else
+        {
+            Serialization.Save(currentDataGame);
+        }
     }
 
     // Update is called once per frame
