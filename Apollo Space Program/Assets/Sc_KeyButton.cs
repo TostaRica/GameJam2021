@@ -23,12 +23,10 @@ public class Sc_KeyButton : MonoBehaviour
                 global.CodeBlockDestroyer(codeblock);
                 global.increaseScore();
                 codeblock = null;
-                //add points
             }
             else
             {
                 global.breakCombo();
-                //quitar puntos
             }
         }
         if (Input.GetKeyUp(key))

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
 public class Sc_Global : MonoBehaviour
 {
     public enum EndGameNum
@@ -13,7 +12,6 @@ public class Sc_Global : MonoBehaviour
         LoseScore = 3,
     }
 
-   
     [SerializeField] private Sc_CodeBlockGenerator cod1;
     [SerializeField] private Sc_CodeBlockGenerator cod2;
     [SerializeField] private Sc_CodeBlockGenerator cod3;
@@ -21,7 +19,7 @@ public class Sc_Global : MonoBehaviour
     [SerializeField] private Sc_CodeBlockGenerator cod5;
     [SerializeField] private Text txt_score;
     [SerializeField] private Text txt_combo;
-    public static DataGame currentData;
+    public static DataGame currentData = new DataGame();
 
     private int codeBlockCount = 0;
     private int score;
@@ -49,7 +47,8 @@ public class Sc_Global : MonoBehaviour
         {
             Serialization.Load();
         }
-        else {
+        else
+        {
             Serialization.Save(currentData);
         }
 
@@ -170,6 +169,7 @@ public class Sc_Global : MonoBehaviour
     {
         currentComboBar = 0;
         currentComboMultiplier = 1;
+        ram++;
     }
 
     public void Menu()
@@ -177,46 +177,46 @@ public class Sc_Global : MonoBehaviour
         UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
     }
 
-    public void SaveDataGame()
+    private void CheckRam()
     {
-        // Serialization.Save(currentDataGame);
-    }
-    private void CheckRam() {
-        if (ram > maxRAM + (int)currentData.actualRamUpgrade) {
+        if (ram > maxRAM + (int)currentData.actualRamUpgrade)
+        {
             EndGame(EndGameNum.LoseRam);
         }
     }
-    private void EndGame(EndGameNum endGame) {
 
+    private void EndGame(EndGameNum endGame)
+    {
         if (score > currentData.highScore)
         {
             currentData.highScore = score;
         }
-        currentData.currency = GetCoins();
+        currentData.currency += GetCoins();
         Serialization.Save(currentData);
 
-        switch (endGame) {
+        switch (endGame)
+        {
             case EndGameNum.Victory:
                 Menu();
                 break;
+
             case EndGameNum.LoseRam:
                 Menu();
                 break;
+
             case EndGameNum.LoseScore:
                 Menu();
                 break;
         }
-
     }
-    internal static void SetDataGame(DataGame datagame) {
+
+    internal static void SetDataGame(DataGame datagame)
+    {
         currentData = datagame;
     }
-    private int GetCoins() {
 
-        return (int) score/currencyValue; 
+    private int GetCoins()
+    {
+        return (int)score / currencyValue;
     }
-
-
-
-
 }

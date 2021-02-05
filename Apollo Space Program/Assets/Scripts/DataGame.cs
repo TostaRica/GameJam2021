@@ -8,6 +8,7 @@ public enum UpgradeCoffeeCode
     Mexican = 3, //x3
     American = 4 //x4
 }
+
 public enum UpgradeRamCode
 {
     None = 0,
@@ -18,8 +19,7 @@ public enum UpgradeRamCode
 
 [System.Serializable]
 public class DataGame
-{   
-
+{
     public int highScore;
     public int currency;
     public UpgradeCoffeeCode actualCoffeeUpgrade;
@@ -28,11 +28,8 @@ public class DataGame
     public DataGame()
     {
         highScore = 0;
-        currency = 1;
+        currency = 0;
         actualCoffeeUpgrade = UpgradeCoffeeCode.None;
         actualRamUpgrade = UpgradeRamCode.None;
     }
-
-
-
 }
