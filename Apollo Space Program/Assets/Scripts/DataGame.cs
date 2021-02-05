@@ -10,7 +10,7 @@ public enum UpgradeCoffeeCode
 }
 public enum UpgradeRamCode
 {
-    None = 1,
+    None = 0,
     TwoKB = 2, //+2
     FourKB = 4, //+4
     SixKB = 6 //+6
