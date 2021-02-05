@@ -134,7 +134,7 @@ GameObject:
   m_Component:
   - component: {fileID: 34297468}
   m_Layer: 5
-  m_Name: ColombianCoffee (1)
+  m_Name: MexicanCoffee
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -240,7 +240,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Multiplies the points by two every 30 seconds for 15 seconds
+  m_Text: Multiplies the score by four
 --- !u!222 &82080417
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -467,17 +467,17 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: 3f731d6810245ef4cbf7b2b54c7f0824, type: 3}
     m_FontSize: 0
-    m_FontStyle: 0
+    m_FontStyle: 1
     m_BestFit: 1
     m_MinSize: 0
-    m_MaxSize: 246
-    m_Alignment: 1
+    m_MaxSize: 40
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: MEXICAN Coffee
+  m_Text: MEXICAN COFFEE
 --- !u!222 &247091708
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -612,17 +612,17 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: 3f731d6810245ef4cbf7b2b54c7f0824, type: 3}
     m_FontSize: 0
-    m_FontStyle: 0
+    m_FontStyle: 1
     m_BestFit: 1
     m_MinSize: 0
-    m_MaxSize: 246
-    m_Alignment: 1
+    m_MaxSize: 40
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Colombian Coffee
+  m_Text: INCREASE 2 KB
 --- !u!222 &455776571
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -691,17 +691,17 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: 3f731d6810245ef4cbf7b2b54c7f0824, type: 3}
     m_FontSize: 0
-    m_FontStyle: 0
+    m_FontStyle: 1
     m_BestFit: 1
     m_MinSize: 0
-    m_MaxSize: 246
-    m_Alignment: 1
+    m_MaxSize: 40
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Colombian Coffee
+  m_Text: AMERICAN COFFEE
 --- !u!222 &493340696
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -859,7 +859,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Multiplies the points by two every 30 seconds for 15 seconds
+  m_Text: Increases RAM capacity by 4 KB
 --- !u!222 &577317819
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -953,7 +953,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1624931850}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: GetColombianCoffeeUpgrade
+        m_MethodName: GetAmericanCoffeeUpgrade
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1164,7 +1164,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Multiplies the points by two every 30 seconds for 15 seconds
+  m_Text: Increases RAM capacity by 6 KB
 --- !u!222 &720126586
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1233,7 +1233,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: 3f731d6810245ef4cbf7b2b54c7f0824, type: 3}
     m_FontSize: 10
-    m_FontStyle: 0
+    m_FontStyle: 2
     m_BestFit: 1
     m_MinSize: 1
     m_MaxSize: 40
@@ -1243,7 +1243,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'PRICE: 10'
+  m_Text: 'PRICE: 30'
 --- !u!222 &725563227
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1768,17 +1768,17 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: 3f731d6810245ef4cbf7b2b54c7f0824, type: 3}
     m_FontSize: 0
-    m_FontStyle: 0
+    m_FontStyle: 1
     m_BestFit: 1
     m_MinSize: 0
-    m_MaxSize: 246
-    m_Alignment: 1
+    m_MaxSize: 40
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Colombian Coffee
+  m_Text: INCREASE 4 KB
 --- !u!222 &976780241
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1922,7 +1922,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: 3f731d6810245ef4cbf7b2b54c7f0824, type: 3}
     m_FontSize: 10
-    m_FontStyle: 0
+    m_FontStyle: 2
     m_BestFit: 1
     m_MinSize: 1
     m_MaxSize: 40
@@ -2101,7 +2101,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1624931850}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: GetColombianCoffeeUpgrade
+        m_MethodName: GetFourRAMUpgrade
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2234,7 +2234,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1624931850}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: GetColombianCoffeeUpgrade
+        m_MethodName: GetTwoRAMUpgrade
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2431,7 +2431,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Multiplies the points by three every 30 seconds for 15 seconds
+  m_Text: Multiplies the score by three
 --- !u!222 &1330801416
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2510,7 +2510,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Multiplies the points by two every 30 seconds for 15 seconds
+  m_Text: Increases RAM capacity by 2 KB
 --- !u!222 &1335169690
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2729,7 +2729,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: 3f731d6810245ef4cbf7b2b54c7f0824, type: 3}
     m_FontSize: 10
-    m_FontStyle: 0
+    m_FontStyle: 2
     m_BestFit: 1
     m_MinSize: 1
     m_MaxSize: 40
@@ -2739,7 +2739,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'PRICE: 10'
+  m_Text: 'PRICE: 60'
 --- !u!222 &1450093007
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2758,7 +2758,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1535432460}
   m_Layer: 5
-  m_Name: ColombianCoffee (4)
+  m_Name: FourRam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2798,7 +2798,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1597375253}
   m_Layer: 5
-  m_Name: ColombianCoffee (3)
+  m_Name: TwoRam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2862,11 +2862,11 @@ MonoBehaviour:
   actualCoffeeUpgradeText: {fileID: 8789910750597723927}
   actualRamUpgradeText: {fileID: 8789910751636018189}
   colombianCoffeeBtn: {fileID: 8789910751440905081}
-  mexicanCoffeeBtn: {fileID: 0}
-  americanCoffeeBtn: {fileID: 0}
-  TwoRamBtn: {fileID: 0}
-  FourRamBtn: {fileID: 0}
-  SixRamBtn: {fileID: 0}
+  mexicanCoffeeBtn: {fileID: 1785214494}
+  americanCoffeeBtn: {fileID: 665342219}
+  TwoRamBtn: {fileID: 1220082152}
+  FourRamBtn: {fileID: 1111089294}
+  SixRamBtn: {fileID: 1766542597}
 --- !u!4 &1624931851
 Transform:
   m_ObjectHideFlags: 0
@@ -2941,7 +2941,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: 3f731d6810245ef4cbf7b2b54c7f0824, type: 3}
     m_FontSize: 10
-    m_FontStyle: 0
+    m_FontStyle: 2
     m_BestFit: 1
     m_MinSize: 1
     m_MaxSize: 40
@@ -2951,7 +2951,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'PRICE: 10'
+  m_Text: 'PRICE: 60'
 --- !u!222 &1734558395
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3045,7 +3045,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1624931850}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: GetColombianCoffeeUpgrade
+        m_MethodName: GetSixRAMUpgrade
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3178,7 +3178,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1624931850}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: GetColombianCoffeeUpgrade
+        m_MethodName: GetMexicanCoffeeUpgrade
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3365,7 +3365,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: 3f731d6810245ef4cbf7b2b54c7f0824, type: 3}
     m_FontSize: 10
-    m_FontStyle: 0
+    m_FontStyle: 2
     m_BestFit: 1
     m_MinSize: 1
     m_MaxSize: 40
@@ -3375,7 +3375,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'PRICE: 10'
+  m_Text: PRICE:30
 --- !u!222 &1819119439
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3463,17 +3463,17 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: 3f731d6810245ef4cbf7b2b54c7f0824, type: 3}
     m_FontSize: 0
-    m_FontStyle: 0
+    m_FontStyle: 1
     m_BestFit: 1
     m_MinSize: 0
-    m_MaxSize: 246
-    m_Alignment: 1
+    m_MaxSize: 40
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Colombian Coffee
+  m_Text: INCREASE 6 KB
 --- !u!222 &1910671952
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3492,7 +3492,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1932506769}
   m_Layer: 5
-  m_Name: ColombianCoffee (2)
+  m_Name: AmericanCoffee
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3532,7 +3532,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2102176467}
   m_Layer: 5
-  m_Name: ColombianCoffee (5)
+  m_Name: SixRam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3585,7 +3585,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: 3f731d6810245ef4cbf7b2b54c7f0824, type: 3}
     m_FontSize: 10
-    m_FontStyle: 0
+    m_FontStyle: 2
     m_BestFit: 1
     m_MinSize: 1
     m_MaxSize: 40
@@ -3656,7 +3656,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8789910749848443610
 Transform:
   m_ObjectHideFlags: 0
@@ -5592,7 +5592,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Multiplies the points by two
+  m_Text: Multiplies the score by two
 --- !u!222 &8789910751737800962
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5618,7 +5618,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 60}
-  m_SizeDelta: {x: 135, y: 20}
+  m_SizeDelta: {x: 150, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8789910751737800989
 MonoBehaviour:
@@ -5643,17 +5643,17 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: 3f731d6810245ef4cbf7b2b54c7f0824, type: 3}
     m_FontSize: 0
-    m_FontStyle: 0
+    m_FontStyle: 1
     m_BestFit: 1
     m_MinSize: 0
-    m_MaxSize: 246
-    m_Alignment: 1
+    m_MaxSize: 40
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Colombian Coffee
+  m_Text: COLOMBIAN COFFEE
 --- !u!1 &8789910751737800991
 GameObject:
   m_ObjectHideFlags: 0
