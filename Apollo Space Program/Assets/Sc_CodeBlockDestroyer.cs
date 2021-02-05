@@ -4,24 +4,23 @@ using UnityEngine;
 
 public class Sc_CodeBlockDestroyer : MonoBehaviour
 {
+    [SerializeField] private Sc_Global global = null;
+
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
     }
-
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("CodeBlock"))
         {
-            Destroy(other.gameObject);
+            global.CodeBlockDestroyer(other.gameObject, true);
         }
     }
 }

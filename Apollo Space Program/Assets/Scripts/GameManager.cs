@@ -26,6 +26,11 @@ public class GameManager : MonoBehaviour
     public Button FourRamBtn;
     public Button SixRamBtn;
 
+    //Audio
+    public AudioSource audio;
+    public AudioSource coffe;
+    public AudioSource ram;
+    public AudioSource EnterEffect;
     // Start is called before the first frame update
     void Start()
     {
@@ -82,21 +87,25 @@ public class GameManager : MonoBehaviour
     // Methods to flow
     public void Play()
     {
+        audio.Play();
         UnityEngine.SceneManagement.SceneManager.LoadScene(GAME);
     }
 
     public void Upgrades()
     {
+        audio.Play();
         UnityEngine.SceneManagement.SceneManager.LoadScene(UPGRADES);
     }
 
     public void Menu()
     {
+   
         UnityEngine.SceneManagement.SceneManager.LoadScene(MENU);
     }
 
     public void Exit()
     {
+        audio.Play();
         Application.Quit();
     }
 
@@ -120,6 +129,7 @@ public class GameManager : MonoBehaviour
     // Methods Upgrades
     public void GetColombianCoffeeUpgrade()
     {
+        coffe.Play();
         currentDataGame.currency -= 10;
         currentDataGame.actualCoffeeUpgrade = UpgradeCoffeeCode.Colombian;
         SaveDataGame();
@@ -127,6 +137,7 @@ public class GameManager : MonoBehaviour
 
     public void GetMexicanCoffeeUpgrade()
     {
+        coffe.Play();
         currentDataGame.currency -= 30;
         currentDataGame.actualCoffeeUpgrade = UpgradeCoffeeCode.Mexican;
         SaveDataGame();
@@ -134,6 +145,7 @@ public class GameManager : MonoBehaviour
     
     public void GetAmericanCoffeeUpgrade()
     {
+        coffe.Play();
         currentDataGame.currency -= 60;
         currentDataGame.actualCoffeeUpgrade = UpgradeCoffeeCode.American;
         SaveDataGame();
@@ -141,6 +153,7 @@ public class GameManager : MonoBehaviour
 
     public void GetTwoRAMUpgrade()
     {
+        ram.Play();
         currentDataGame.currency -= 10;
         currentDataGame.actualRamUpgrade = UpgradeRamCode.TwoKB;
         SaveDataGame();
@@ -148,6 +161,7 @@ public class GameManager : MonoBehaviour
 
     public void GetFourRAMUpgrade()
     {
+        ram.Play();
         currentDataGame.currency -= 30;
         currentDataGame.actualRamUpgrade = UpgradeRamCode.FourKB;
         SaveDataGame();
@@ -155,9 +169,14 @@ public class GameManager : MonoBehaviour
     
     public void GetSixRAMUpgrade()
     {
+        ram.Play();
         currentDataGame.currency -= 60;
         currentDataGame.actualRamUpgrade = UpgradeRamCode.SixKB;
         SaveDataGame();
+    }
+    public void DoEnterEffect()
+    {
+        EnterEffect.Play();
     }
 
     private void UpdateButtonsUpgrade()
