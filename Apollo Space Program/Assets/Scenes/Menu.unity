@@ -216,7 +216,7 @@ GameObject:
   - component: {fileID: 80028371}
   - component: {fileID: 80028370}
   m_Layer: 5
-  m_Name: Button
+  m_Name: EmptyButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1177,7 +1177,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: +1
+  m_Text: +100
 --- !u!222 &499659249
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2292,7 +2292,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1624931849}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c7fbbe73daebdc4681f1e036b9eaa7f, type: 3}
+  m_Script: {fileID: 11500000, guid: 970e853e0f7bd0548b2b2321c4294726, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   highScoreText: {fileID: 446996453}
@@ -2301,8 +2301,10 @@ MonoBehaviour:
   actualRamUpgradeText: {fileID: 734942236}
   colombianCoffeeBtn: {fileID: 80028370}
   mexicanCoffeeBtn: {fileID: 80028370}
+  americanCoffeeBtn: {fileID: 80028370}
   TwoRamBtn: {fileID: 80028370}
   FourRamBtn: {fileID: 80028370}
+  SixRamBtn: {fileID: 80028370}
 --- !u!4 &1624931851
 Transform:
   m_ObjectHideFlags: 0

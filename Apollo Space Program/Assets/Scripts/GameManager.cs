@@ -21,8 +21,10 @@ public class GameManager : MonoBehaviour
     // Upgrades buttons
     public Button colombianCoffeeBtn;
     public Button mexicanCoffeeBtn;
+    public Button americanCoffeeBtn;
     public Button TwoRamBtn;
     public Button FourRamBtn;
+    public Button SixRamBtn;
 
     // Start is called before the first frame update
     void Start()
@@ -31,16 +33,21 @@ public class GameManager : MonoBehaviour
         if (Serialization.isFileExists())
         {
             Serialization.Load();
-        } else
+        }
+        else
         {
             Serialization.Save(currentDataGame);
         }
 
+
+
         // Upgrades buttons
         colombianCoffeeBtn.interactable = false;
         mexicanCoffeeBtn.interactable = false;
+        americanCoffeeBtn.interactable = false;
         TwoRamBtn.interactable = false;
         FourRamBtn.interactable = false;
+        SixRamBtn.interactable = false;
     }
 
     // Update is called once per frame
@@ -51,20 +58,23 @@ public class GameManager : MonoBehaviour
         actualCoffeeUpgradeText.text = currentDataGame.actualCoffeeUpgrade.ToString();
         actualRamUpgradeText.text = currentDataGame.actualRamUpgrade.ToString();
 
-        UpdateButtonsUpgrade();
-  
+        if (Application.loadedLevelName != MENU) // Menu Index 0
+        {
+            UpdateButtonsUpgrade();
+        }
+        
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Application.Quit();
         }
-            
+
     }
 
-    public void AddHighScore ()
+    public void AddHighScore()
     {
         currentDataGame.highScore += 100;
-    }    
-    public void AddCurrency ()
+    }
+    public void AddCurrency()
     {
         currentDataGame.currency += 10;
     }
@@ -78,13 +88,14 @@ public class GameManager : MonoBehaviour
     public void Upgrades()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(UPGRADES);
-    }    
+    }
 
     public void Menu()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(MENU);
+        SaveDataGame();
     }
-    
+
     public void Exit()
     {
         Application.Quit();
@@ -114,50 +125,82 @@ public class GameManager : MonoBehaviour
         currentDataGame.actualCoffeeUpgrade = UpgradeCoffeeCode.Colombian;
     }
 
-    public void GetTwoRAMUpgrade()
-    {
-        currentDataGame.currency -= 30;
-        currentDataGame.actualRamUpgrade = UpgradeRamCode.TwoKB;
-    }
-
     public void GetMexicanCoffeeUpgrade()
     {
-        currentDataGame.currency -= 10;
+        currentDataGame.currency -= 30;
         currentDataGame.actualCoffeeUpgrade = UpgradeCoffeeCode.Mexican;
     }    
     
+    public void GetAmericanCoffeeUpgrade()
+    {
+        currentDataGame.currency -= 60;
+        currentDataGame.actualCoffeeUpgrade = UpgradeCoffeeCode.American;
+    }
+
+    public void GetTwoRAMUpgrade()
+    {
+        currentDataGame.currency -= 10;
+        currentDataGame.actualRamUpgrade = UpgradeRamCode.TwoKB;
+    }
+
     public void GetFourRAMUpgrade()
     {
         currentDataGame.currency -= 30;
         currentDataGame.actualRamUpgrade = UpgradeRamCode.FourKB;
     }
+    
+    public void GetSixRAMUpgrade()
+    {
+        currentDataGame.currency -= 60;
+        currentDataGame.actualRamUpgrade = UpgradeRamCode.SixKB;
+    }
 
     private void UpdateButtonsUpgrade()
     {
-        if (currentDataGame.actualCoffeeUpgrade == UpgradeCoffeeCode.None && currentDataGame.currency > 10)
+        if (currentDataGame.actualCoffeeUpgrade == UpgradeCoffeeCode.None)
         {
-            colombianCoffeeBtn.interactable = true;
+            colombianCoffeeBtn.gameObject.SetActive(true);
+            colombianCoffeeBtn.interactable = currentDataGame.currency > 10 ? true : false;
         } else if (currentDataGame.actualCoffeeUpgrade == UpgradeCoffeeCode.Colombian)
         {
-            colombianCoffeeBtn.Select();
-            if (currentDataGame.currency > 30)
-            {
-                mexicanCoffeeBtn.interactable = true;
-            }    
-        }
-
-        if (currentDataGame.actualRamUpgrade == UpgradeRamCode.None && currentDataGame.currency > 10)
+            colombianCoffeeBtn.gameObject.SetActive(false);
+            mexicanCoffeeBtn.gameObject.SetActive(true);
+            mexicanCoffeeBtn.interactable = currentDataGame.currency > 30 ? true : false;
+        } else if (currentDataGame.actualCoffeeUpgrade == UpgradeCoffeeCode.Mexican)
         {
-            TwoRamBtn.interactable = true;
+            colombianCoffeeBtn.gameObject.SetActive(false);
+            mexicanCoffeeBtn.gameObject.SetActive(false);
+            americanCoffeeBtn.gameObject.SetActive(true);
+            americanCoffeeBtn.interactable = currentDataGame.currency > 60 ? true : false;
+        } else if (currentDataGame.actualCoffeeUpgrade == UpgradeCoffeeCode.American)
+        {
+            colombianCoffeeBtn.gameObject.SetActive(false);
+            mexicanCoffeeBtn.gameObject.SetActive(false);
+            americanCoffeeBtn.gameObject.SetActive(false);
+        }
+        if (currentDataGame.actualRamUpgrade == UpgradeRamCode.None)
+        {
+            TwoRamBtn.gameObject.SetActive(true);
+            TwoRamBtn.interactable = currentDataGame.currency > 10 ? true : false;
         }
         else if (currentDataGame.actualRamUpgrade == UpgradeRamCode.TwoKB)
         {
-            TwoRamBtn.Select();
-            if (currentDataGame.currency > 30)
-            {
-                FourRamBtn.interactable = true;
-            }
+            TwoRamBtn.gameObject.SetActive(false);
+            FourRamBtn.gameObject.SetActive(true);
+            FourRamBtn.interactable = currentDataGame.currency > 30 ? true : false;
+        }
+        else if (currentDataGame.actualRamUpgrade == UpgradeRamCode.FourKB)
+        {
+            TwoRamBtn.gameObject.SetActive(false);
+            FourRamBtn.gameObject.SetActive(false);
+            SixRamBtn.gameObject.SetActive(true);
+            SixRamBtn.interactable = currentDataGame.currency > 60 ? true : false;
+        }
+        else if (currentDataGame.actualRamUpgrade == UpgradeRamCode.SixKB)
+        {
+            TwoRamBtn.gameObject.SetActive(false);
+            FourRamBtn.gameObject.SetActive(false);
+            SixRamBtn.gameObject.SetActive(false);
         }
     }
-
 }
