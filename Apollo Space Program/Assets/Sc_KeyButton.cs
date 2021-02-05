@@ -20,15 +20,13 @@ public class Sc_KeyButton : MonoBehaviour
             gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 0.05f, gameObject.transform.position.z);
             if (codeblock != null)
             {
-                global.CodeBlockCountDestroyer(codeblock);
+                global.CodeBlockDestroyer(codeblock);
                 global.increaseScore();
                 codeblock = null;
-                //add points
             }
             else
             {
                 global.breakCombo();
-                //quitar puntos
             }
         }
         if (Input.GetKeyUp(key))

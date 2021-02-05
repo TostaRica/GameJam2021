@@ -20,7 +20,7 @@ public class Sc_CodeBlockDestroyer : MonoBehaviour
     {
         if (other.CompareTag("CodeBlock"))
         {
-            global.CodeBlockCountDestroyer(other.gameObject);
+            global.CodeBlockDestroyer(other.gameObject, true);
         }
     }
 }

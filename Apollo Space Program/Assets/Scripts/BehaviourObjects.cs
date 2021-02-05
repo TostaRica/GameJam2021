@@ -6,19 +6,18 @@ using UnityEngine;
 public class BehaviourObjects : MonoBehaviour
 {
     public GameObject coffeeMug;
-    public static DataGame currentDataGame;
+    public static DataGame currentDataGame = new DataGame();
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         Serialization.Load();
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        bool isUpgradeCoffee = (currentDataGame.actualCoffeeUpgrade != UpgradeCoffeeCode.None) ? true : false;
-        coffeeMug.gameObject.SetActive(isUpgradeCoffee);
+        coffeeMug.gameObject.SetActive(currentDataGame.actualCoffeeUpgrade != UpgradeCoffeeCode.None);
     }
 
     internal static void SetDataGame(DataGame dataGame)
