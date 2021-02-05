@@ -23,7 +23,7 @@ public class Sc_Global : MonoBehaviour
 
     private int codeBlockCount = 0;
     private int score;
-    private int maxRAM = 10;
+    private int maxRAM = 2;
     private int ram = 0;
     private int currency;
     private float delayTime = 0.5f;
@@ -41,6 +41,7 @@ public class Sc_Global : MonoBehaviour
     private int maxComboBar = 10;
     public GameObject CamaraMove;
     public GameObject Roket;
+    public GameObject Fire;
     // Start is called before the first frame update
     private void Start()
     {
@@ -207,7 +208,11 @@ public class Sc_Global : MonoBehaviour
 
             case EndGameNum.LoseRam:
                 Roket.GetComponent<Roket>().isDestroy = true;
-              //  Menu();
+                Fire.gameObject.SetActive(true);
+                Animator animation = CamaraMove.GetComponent<Animator>();
+                animation.enabled = true;
+
+                // Menu();
                 break;
 
             case EndGameNum.LoseScore:

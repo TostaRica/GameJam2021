@@ -13,6 +13,8 @@ public class Roket : MonoBehaviour
     public bool isDestroy;
     public bool HasBeenDestroy;
     public float timeToScene;
+
+
     // Start is called before the first frame update
     void Start()
     {

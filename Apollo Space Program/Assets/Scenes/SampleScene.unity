@@ -2057,6 +2057,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fire_A (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1271764609937064, guid: 8b47f39d91e61384889cff33839361dc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4386965732751510, guid: 8b47f39d91e61384889cff33839361dc, type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.884
@@ -2334,8 +2338,9 @@ MonoBehaviour:
   cod5: {fileID: 1204593456}
   txt_score: {fileID: 185138671}
   txt_combo: {fileID: 239374142}
-  CamaraMove: {fileID: 0}
+  CamaraMove: {fileID: 963194225}
   Roket: {fileID: 320468338}
+  Fire: {fileID: 0}
 --- !u!114 &963194230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2413,7 +2418,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: cc356b290c925ce44892fa39bd8adfb7, type: 2}
   m_CullingMode: 1
