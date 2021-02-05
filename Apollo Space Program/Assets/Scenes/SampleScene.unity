@@ -330,6 +330,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 185138669}
   m_CullTransparentMesh: 1
+--- !u!1 &194600110 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1271764609937064, guid: 8b47f39d91e61384889cff33839361dc,
+    type: 3}
+  m_PrefabInstance: {fileID: 937995298}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &209686752
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2340,7 +2346,7 @@ MonoBehaviour:
   txt_combo: {fileID: 239374142}
   CamaraMove: {fileID: 963194225}
   Roket: {fileID: 320468338}
-  Fire: {fileID: 0}
+  Fire: {fileID: 194600110}
 --- !u!114 &963194230
 MonoBehaviour:
   m_ObjectHideFlags: 0
