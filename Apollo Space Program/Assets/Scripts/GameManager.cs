@@ -101,7 +101,6 @@ public class GameManager : MonoBehaviour
     {
    
         UnityEngine.SceneManagement.SceneManager.LoadScene(MENU);
-        SaveDataGame();
     }
 
     public void Exit()
@@ -133,6 +132,7 @@ public class GameManager : MonoBehaviour
         coffe.Play();
         currentDataGame.currency -= 10;
         currentDataGame.actualCoffeeUpgrade = UpgradeCoffeeCode.Colombian;
+        SaveDataGame();
     }
 
     public void GetMexicanCoffeeUpgrade()
@@ -140,6 +140,7 @@ public class GameManager : MonoBehaviour
         coffe.Play();
         currentDataGame.currency -= 30;
         currentDataGame.actualCoffeeUpgrade = UpgradeCoffeeCode.Mexican;
+        SaveDataGame();
     }    
     
     public void GetAmericanCoffeeUpgrade()
@@ -147,6 +148,7 @@ public class GameManager : MonoBehaviour
         coffe.Play();
         currentDataGame.currency -= 60;
         currentDataGame.actualCoffeeUpgrade = UpgradeCoffeeCode.American;
+        SaveDataGame();
     }
 
     public void GetTwoRAMUpgrade()
@@ -154,6 +156,7 @@ public class GameManager : MonoBehaviour
         ram.Play();
         currentDataGame.currency -= 10;
         currentDataGame.actualRamUpgrade = UpgradeRamCode.TwoKB;
+        SaveDataGame();
     }
 
     public void GetFourRAMUpgrade()
@@ -161,6 +164,7 @@ public class GameManager : MonoBehaviour
         ram.Play();
         currentDataGame.currency -= 30;
         currentDataGame.actualRamUpgrade = UpgradeRamCode.FourKB;
+        SaveDataGame();
     }
     
     public void GetSixRAMUpgrade()
@@ -168,6 +172,7 @@ public class GameManager : MonoBehaviour
         ram.Play();
         currentDataGame.currency -= 60;
         currentDataGame.actualRamUpgrade = UpgradeRamCode.SixKB;
+        SaveDataGame();
     }
     public void DoEnterEffect()
     {
