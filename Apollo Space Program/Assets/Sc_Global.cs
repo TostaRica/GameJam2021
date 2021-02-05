@@ -15,11 +15,16 @@ public class Sc_Global : MonoBehaviour
     [SerializeField] private Text txt_score;
     [SerializeField] private Text txt_combo;
 
+    private int codeBlockCount = 0;
     private int score;
     private int ram;
     private int currency;
     private float delayTime = 0.6f;
     private float nextAction = 0.0f;
+    private float finalDelay = 2.5f;
+    private float finalAction = 0.0f;
+    private bool endGame = false;
+
     private Queue<int[]> level = new Queue<int[]>();
 
     private int currentComboMultiplier = 1;
@@ -49,17 +54,47 @@ public class Sc_Global : MonoBehaviour
                 increaseSpeed();
             }
         }
+
+        if (!endGame && codeBlockCount == 0)
+        {
+            finalAction = Time.time + finalDelay;
+            endGame = true;
+        }
+        if (endGame && finalAction - Time.time < 0)
+        {
+            Menu();
+        }
     }
 
     private void initLevel()
     {
-        generateStage(Random.Range(10, 20), new Vector2(1, 1));
-        generateStage(Random.Range(10, 15), new Vector2(0, 2));
-        generateStage(Random.Range(5, 10), new Vector2(1, 2));
-        generateStage(Random.Range(10, 15), new Vector2(1, 2));
-        generateStage(Random.Range(5, 10), new Vector2(0, 3));
-        generateStage(Random.Range(10, 15), new Vector2(1, 2));
-        generateStage(Random.Range(5, 10), new Vector2(2, 3));
+        int randomNumber = Random.Range(10, 20);
+        codeBlockCount += randomNumber;
+        generateStage(randomNumber, new Vector2(1, 1));
+        randomNumber = Random.Range(10, 15);
+        codeBlockCount += randomNumber;
+        generateStage(randomNumber, new Vector2(0, 2));
+        randomNumber = Random.Range(5, 10);
+        codeBlockCount += randomNumber;
+        generateStage(randomNumber, new Vector2(1, 2));
+        randomNumber = Random.Range(10, 15);
+        codeBlockCount += randomNumber;
+        generateStage(randomNumber, new Vector2(1, 2));
+        randomNumber = Random.Range(5, 10);
+        codeBlockCount += randomNumber;
+        generateStage(randomNumber, new Vector2(0, 3));
+        randomNumber = Random.Range(10, 15);
+        codeBlockCount += randomNumber;
+        generateStage(randomNumber, new Vector2(1, 2));
+        randomNumber = Random.Range(5, 10);
+        codeBlockCount += randomNumber;
+        generateStage(randomNumber, new Vector2(2, 3));
+    }
+
+    public void CodeBlockCountDestroyer(GameObject codeBlock)
+    {
+        Destroy(codeBlock);
+        codeBlockCount--;
     }
 
     private void generateCodeBlocks()
