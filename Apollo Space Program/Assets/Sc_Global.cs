@@ -197,12 +197,13 @@ public class Sc_Global : MonoBehaviour
         currentData.currency += GetCoins();
         Serialization.Save(currentData);
 
+        CamaraMove.GetComponent<Animator>().SetBool("End", true);
+
         switch (endGame)
         {
             case EndGameNum.Victory:
                 Roket.GetComponent<Roket>().levelEnd = true;
-                CamaraMove.transform.position = new Vector3(19.54f, 8.0f, -200.00f);
-                CamaraMove.transform.eulerAngles = new Vector3(-32.7f, 155.0f, 2.5f);
+               
                 //Menu();
                 break;
 
