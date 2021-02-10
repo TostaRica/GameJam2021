@@ -32,3 +32,6 @@ Es poden comprar:
   - El foc i el fum del motors del coet
   - Les fonts de la UI
   - Skybox
+
+#### Gameplay:
+[![Gameplay](https://img.youtube.com/vi/4oddfG30_Gg/0.jpg)](https://www.youtube.com/watch?v=4oddfG30_Gg)
