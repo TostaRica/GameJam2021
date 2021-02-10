@@ -109,7 +109,7 @@ public class Roket : MonoBehaviour
         else
         {
             
-           gameObject.transform.Translate(Vector3.forward * 10 * Time.deltaTime);
+           gameObject.transform.Translate(Vector3.up * 20 * Time.deltaTime);
             GameObject[] RoketFires;
             RoketFires = GameObject.FindGameObjectsWithTag("Rfire");
             foreach (GameObject go in RoketFires)

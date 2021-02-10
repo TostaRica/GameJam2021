@@ -23,7 +23,7 @@ public class Sc_Global : MonoBehaviour
 
     private int codeBlockCount = 0;
     private int score;
-    private int maxRAM = 2;
+    private int maxRAM = 16;
     private int ram = 0;
     private int currency;
     private float delayTime = 0.5f;
@@ -42,6 +42,7 @@ public class Sc_Global : MonoBehaviour
     public GameObject CamaraMove;
     public GameObject Roket;
     public GameObject Fire;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -87,27 +88,31 @@ public class Sc_Global : MonoBehaviour
 
     private void initLevel()
     {
-        int randomNumber = Random.Range(40, 50);
+        int randomNumber = Random.Range(15, 25);
         codeBlockCount += randomNumber;
         generateStage(randomNumber, new Vector2(0, 1));
+
         randomNumber = Random.Range(10, 15);
         codeBlockCount += randomNumber;
         generateStage(randomNumber, new Vector2(1, 2));
-        randomNumber = Random.Range(5, 10);
-        codeBlockCount += randomNumber;
-        generateStage(randomNumber, new Vector2(1, 2));
-        randomNumber = Random.Range(10, 15);
-        codeBlockCount += randomNumber;
-        generateStage(randomNumber, new Vector2(1, 2));
+
+        // randomNumber = Random.Range(5, 10);
+        // codeBlockCount += randomNumber;
+        // generateStage(randomNumber, new Vector2(1, 2));
+        // randomNumber = Random.Range(10, 15);
+        // codeBlockCount += randomNumber;
+        // generateStage(randomNumber, new Vector2(1, 2));
+
         randomNumber = Random.Range(5, 10);
         codeBlockCount += randomNumber;
         generateStage(randomNumber, new Vector2(1, 3));
-        randomNumber = Random.Range(10, 15);
-        codeBlockCount += randomNumber;
-        generateStage(randomNumber, new Vector2(1, 2));
-        randomNumber = Random.Range(5, 10);
-        codeBlockCount += randomNumber;
-        generateStage(randomNumber, new Vector2(2, 3));
+
+        // randomNumber = Random.Range(10, 15);
+        // codeBlockCount += randomNumber;
+        // generateStage(randomNumber, new Vector2(1, 2));
+        // randomNumber = Random.Range(5, 10);
+        // codeBlockCount += randomNumber;
+        // generateStage(randomNumber, new Vector2(2, 3));
     }
 
     public void CodeBlockDestroyer(GameObject codeBlock, bool fail = false)
@@ -163,7 +168,11 @@ public class Sc_Global : MonoBehaviour
         if (++currentComboBar == maxComboBar)
         {
             currentComboBar = 0;
-            if (currentComboMultiplier < maxComboMultiplier) ++currentComboMultiplier;
+            if (currentComboMultiplier < maxComboMultiplier)
+            {
+                ++currentComboMultiplier;
+                ram = 0;
+            };
         }
     }
 
@@ -176,7 +185,6 @@ public class Sc_Global : MonoBehaviour
 
     public void Menu()
     {
-
         UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
     }
 
@@ -188,7 +196,7 @@ public class Sc_Global : MonoBehaviour
         }
     }
 
-    private void EndGame(EndGameNum endGame)
+    private void EndGame(EndGameNum _endGame)
     {
         if (score > currentData.highScore)
         {
@@ -199,11 +207,11 @@ public class Sc_Global : MonoBehaviour
 
         CamaraMove.GetComponent<Animator>().SetBool("End", true);
 
-        switch (endGame)
+        switch (_endGame)
         {
             case EndGameNum.Victory:
                 Roket.GetComponent<Roket>().levelEnd = true;
-               
+
                 //Menu();
                 break;
 
