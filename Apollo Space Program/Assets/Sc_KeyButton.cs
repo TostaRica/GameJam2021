@@ -4,32 +4,38 @@ using UnityEngine;
 
 public class Sc_KeyButton : MonoBehaviour
 {
-    [SerializeField] KeyCode key;
-    GameObject codeblock = null;
-    [SerializeField] Sc_Global global = null;
+    [SerializeField] private KeyCode key;
+    private GameObject codeblock = null;
+    [SerializeField] private Sc_Global global = null;
 
-    void Start()
+
+    public ParticleSystem[] particles = new ParticleSystem[2];
+    private void Start()
     {
-        
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (Input.GetKeyDown(key))
         {
+            gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 0.05f, gameObject.transform.position.z);
             if (codeblock != null)
             {
-                Destroy(codeblock);
+                particles[0].Play();
+                particles[1].Play();
+                global.CodeBlockDestroyer(codeblock);
                 global.increaseScore();
                 codeblock = null;
-                //add points
             }
             else
             {
                 global.breakCombo();
-                //quitar puntos 
             }
+        }
+        if (Input.GetKeyUp(key))
+        {
+            gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y - 0.05f, gameObject.transform.position.z);
         }
     }
 
@@ -48,5 +54,4 @@ public class Sc_KeyButton : MonoBehaviour
             codeblock = null;
         }
     }
-
 }
