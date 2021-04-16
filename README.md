@@ -1,5 +1,7 @@
 # Apollo Space Program
 
+Submission for the [Game Jam pels ODS (Gran CITM Game Jam - 4a Edició)](https://itch.io/jam/gran-citm-game-jam-4a-edicio)
+
 *Membres de l'equip TostaRica*: 
 - Xavier Francesch Sabaté [GitHub](https://github.com/xavifs)
 - Cristian Ferrer Galan [GitHub](https://github.com/Yonimevicio)
